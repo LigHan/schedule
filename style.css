@@ -75,17 +75,16 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Общий стиль контейнера */
 .schedule-container {
-    background: rgba(255, 255, 255, 0.164); /* Полупрозрачный фон */
+    background: rgba(255, 255, 255, 0.85);
     padding: 20px;
     border-radius: 10px;
-    max-width: 90%;
+    max-width: 95%;
     text-align: center;
 }
 
-/* Стили для таблицы */
+/* Адаптивная таблица */
 .schedule {
     width: 100%;
-    max-width: 100%;
     border-collapse: collapse;
     margin: 10px 0;
 }
@@ -105,15 +104,27 @@ h1,h2,h3,h4,h5,h6 {
     text-align: center;
 }
 
-/* Адаптивность: скролл на маленьких экранах */
+/* Улучшенная адаптация: горизонтальный скролл на маленьких экранах */
 .schedule-container {
     overflow-x: auto;
 }
 
-/* Делаем текст меньше на мобильных устройствах */
+/* Различие для верхней и нижней недели */
+[data-week="верхняя"] {
+    background-color: rgba(0, 128, 0, 0.658);
+}
+[data-week="нижняя"] {
+    background-color: rgba(128, 0, 0, 0.658);
+}
+[data-week="обе"] {
+    background-color: rgba(0, 0, 128, 0.4);
+}
+
+/* Мобильный режим */
 @media (max-width: 600px) {
     .schedule th, .schedule td {
         padding: 5px;
         font-size: 14px;
     }
 }
+
