@@ -1,0 +1,385 @@
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+  
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+*,
+*:before
+*:after {
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+
+/* container */
+
+.container {
+    width: 100%;    
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+.container_2 {
+    width: auto;   
+    height: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+    border: 3px  #f0cb65;
+    border-radius: 15px;
+
+}
+
+.container_3 {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+    color: #fff;
+    font-size: 30px;
+}
+
+/* intro */
+
+.intro { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+
+    background:
+    url("../img/back.jpg") 
+    center no-repeat;
+    background-size: cover;
+
+    overflow-y: auto;
+}
+
+.intro_2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+
+    background:
+    url("../img/back2.jpg") 
+    center no-repeat;
+    background-size: cover;
+    background-color: #111;
+}
+
+.intro_inner {
+    width: 100%;
+    min-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro__title{
+    color: #fff;
+    font-size: 150px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.intro__title::after{
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 60px auto;
+
+    background-color: #fff;
+}
+
+.intro__suptitle{
+    font-size: 72px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-family: "Kaushan Script", cursive;
+}
+
+.intro_text{
+    overflow-y: auto;
+    padding: 0 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    text-align: justify; 
+    line-height: 1.6; 
+    align-items: center;
+    
+}
+
+/* header */
+
+.header { 
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;    
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 7%;
+    background: rgba(0, 0, 0, 0.13);
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+
+    display: flex;
+    
+}
+
+/* Nav */
+
+.nav { 
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 650;
+    display: flex;
+    gap: 20px;
+    
+    align-items: center;
+}
+
+.nav__link_1{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    overflow-y: auto;
+
+    color: #fff;
+    text-decoration: none;
+
+    transition: color .1s linear;
+}
+
+.nav__link_1::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background-color: #f1d689;
+    opacity: 0;
+
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    z-index: 1;
+
+    transition: opacity .1s linear;
+    
+}
+
+.nav__link_1:hover {
+    color: #f1d689;
+}
+
+.nav__link_1:hover::after,
+.nav__link_1.active:after{
+    opacity: 1;
+}
+
+.nav__link_1.active{
+    color: #f1d689;
+}
+
+
+.nav__back{
+    display: inline-block;
+    vertical-align: top;
+    margin: auto;
+    position: absolute;
+    right: 150px;
+    top: 30px;
+
+    color: #f0cb66;
+    text-decoration: none;
+
+    transition: color .1s linear;
+}
+
+.nav__back::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background-color: #f1d689;
+    opacity: 0;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+
+    transition: opacity .1s linear;
+}
+
+.nav__back:hover {
+    color: #f1d689;
+}
+
+.nav__back:hover::after,
+.nav__back.active:after{
+    opacity: 1;
+}
+
+.nav__back.active{
+    color: #f1d689;
+}
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+    width: 0px;
+    background-color: #050505;
+}
+
+/* !!! game-conent !!! */
+
+.container_game {
+    width: 100%;   
+    text-align: center;
+    height: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стиль кнопки */
+.button_game_int {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    background-color: #f0cb65;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Эффект увеличения при наведении */
+.button_game_int:hover {
+    transform: scale(1.1); /* Увеличение до 110% */
+    background-color: #c9a33a; /* Изменение цвета при наведении */
+}
+
+/* Текст над container_game */
+
+.container_text_game{
+    width: 100%;   
+    text-align: center;
+    height: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 5%;
+    font-size: 30px;
+    color: #c9a33a;
+}
+
+/* Основное видео */
+
+.container_video{
+    width: 100%;   
+    max-width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 10px;
+
+    position: relative;
+    top: -2%;
+
+    display: none;
+    z-index: 999;
+    
+    background:
+    url("../img/back.jpg") 
+}
+
+/* кнопки */
+
+.button_container {
+    display: flex;             
+    justify-content: space-around; 
+    align-items: center;       
+    max-width: 800px;          
+    margin: 20px auto;         
+
+    display: none;
+    z-index: 999;
+}
+
+.game_button {
+    padding: 20px 30px;        
+    font-size: 20px;
+    font-weight: bold;           
+    cursor: pointer;         
+    border: none;            
+    border-radius: 5px;        
+    background-color: #fff; 
+    color: #111;            
+    transition: background-color 0.3s;
+    margin: 30px;
+
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+}
+
+.game_button:hover {
+    background-color: #fdd669; 
+    transform: scale(1.1); /* Увеличение до 110% */
+}
+
+/* Стили для кнопки */
+#toggle-music {
+    display: block;     /* Переводим кнопку в блоковый элемент */
+    margin: 0 auto; 
+    background: none; 
+    padding: 10px 20px; 
+    color: #fff;
+    font-size: 18px; 
+    cursor: pointer; 
+    transition: all 0.3s; 
+    border: none;
+    border-radius: 5px;
+
+}
+
+/* При наведении меняем стиль */
+#toggle-music:hover {
+    background: rgba(255, 255, 255, 0.2); 
+    color: #f1d689;
+}
+
