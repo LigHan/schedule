@@ -127,23 +127,41 @@ h1,h2,h3,h4,h5,h6 {
         font-size: 14px;
     }
 
-    /* Для модального окна на мобильных устройствах */
+    /* Модальное окно (на мобильных) */
+    .modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
     .modal-content {
-        width: 100%; /* 100% ширины экрана */
-        height: 100%; /* 100% высоты экрана */
-        padding: 0; /* Убираем отступы, чтобы использовать все пространство */
-        border-radius: 0; /* Убираем скругления, чтобы окно было прямоугольным */
+        width: 100%; /* Занимает всю ширину */
+        height: 100%; /* Занимает всю высоту */
+        padding: 0; /* Убираем отступы */
+        margin: 0; /* Убираем маргины */
+        border-radius: 0; /* Убираем скругления */
     }
 
     iframe {
-        width: 100%; /* Делаем iframe на всю ширину */
-        height: 100vh; /* Высота iframe — 100% от высоты экрана */
+        width: 100%; /* Ифрейм займет всю ширину */
+        height: 100%; /* Ифрейм займет всю высоту */
+        border: none; /* Убираем рамку */
     }
 
     .close {
-        font-size: 35px; /* Увеличиваем кнопку закрытия для мобильных */
-        top: 10px; /* Сдвигаем кнопку ближе к верхнему краю */
-        right: 10px; /* Сдвигаем кнопку вправо */
+        font-size: 35px;
+        color: black;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
     }
 }
 
@@ -189,5 +207,6 @@ h1,h2,h3,h4,h5,h6 {
         height: 400px; /* Высота iframe для больших экранов */
     }
 }
+
 
 
