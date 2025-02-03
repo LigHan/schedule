@@ -138,7 +138,7 @@ h1,h2,h3,h4,h5,h6 {
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.8); /* Немного темнее фон для мобильных */
     }
 
     .modal-content {
@@ -157,7 +157,7 @@ h1,h2,h3,h4,h5,h6 {
 
     .close {
         font-size: 35px;
-        color: black;
+        color: white; /* Меняем цвет кнопки закрытия на белый для контраста */
         position: absolute;
         top: 10px;
         right: 10px;
@@ -207,6 +207,7 @@ h1,h2,h3,h4,h5,h6 {
         height: 400px; /* Высота iframe для больших экранов */
     }
 }
+
 
 
 
