@@ -126,12 +126,27 @@ h1,h2,h3,h4,h5,h6 {
         padding: 5px;
         font-size: 14px;
     }
+
+    /* Для модального окна на мобильных устройствах */
+    .modal-content {
+        width: 90%; /* 90% ширины экрана */
+        padding: 10px; /* Уменьшаем отступы */
+    }
+
+    iframe {
+        width: 100%; /* Делаем iframe адаптивным */
+        height: 200px; /* Уменьшаем высоту для мобильных устройств */
+    }
+
+    .close {
+        font-size: 25px; /* Уменьшаем размер кнопки закрытия */
+        top: -5px;
+        right: 10px;
+    }
 }
 
-
-/* Корпуса (карта) */
-
-.modal{
+/* Для всех экранов */
+.modal {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -144,19 +159,32 @@ h1,h2,h3,h4,h5,h6 {
     align-items: center;
 }
 
-.modal-content{
+/* Модальное окно */
+.modal-content {
     background: white;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
     position: relative;
+    width: 60%; /* Ширина модального окна для обычных экранов */
+    max-width: 800px; /* Максимальная ширина */
 }
 
-.close{
-    color:black;
+/* Кнопка закрытия */
+.close {
+    color: black;
     position: absolute;
     top: -10px;
     right: 5px;
     font-size: 30px;
     cursor: pointer;
 }
+
+/* Для большего экрана, например, планшеты и десктопы */
+@media (min-width: 601px) {
+    iframe {
+        width: 560px; /* Ширина iframe для больших экранов */
+        height: 400px; /* Высота iframe для больших экранов */
+    }
+}
+
