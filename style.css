@@ -15,6 +15,7 @@ html {
 a {
     text-decoration: none;
     color: #fff;
+    font-weight: bolder;
 }
 
 *,
@@ -27,13 +28,36 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
 }
 
+/* Общий стиль полосы прокрутки */
+::-webkit-scrollbar {
+    width: 5px; /* Ширина вертикального скроллбара */
+    height: 5px; /* Высота горизонтального скроллбара */
+}
+
+/* Полоса фона скроллбара */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Цвет фона */
+    border-radius: 5px;
+}
+
+/* Сам бегунок (ползунок) */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.397); /* Цвет ползунка */
+    border-radius: 10px;
+}
+
+/* При наведении мыши */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
 /* container */
 
 .container {
     width: 100%;    
     max-width: 1200px;
     margin: 0 auto;
-    
 }
 
 /* intro */
@@ -50,6 +74,15 @@ h1,h2,h3,h4,h5,h6 {
     center no-repeat;
     background-size: cover;
 
+    overflow-y: auto;
+}
+
+.intro_news{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background: url("../img/back_news.jpg") center no-repeat;
+    background-size: cover;
     overflow-y: auto;
 }
 
@@ -127,41 +160,21 @@ h1,h2,h3,h4,h5,h6 {
         font-size: 14px;
     }
 
-    /* Модальное окно (на мобильных) */
-    .modal {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8); /* Немного темнее фон для мобильных */
-    }
-
+    /* Для модального окна на мобильных устройствах */
     .modal-content {
-        width: 100%; /* Занимает всю ширину */
-        height: 100%; /* Занимает всю высоту */
-        padding: 0; /* Убираем отступы */
-        margin: 0; /* Убираем маргины */
-        border-radius: 0; /* Убираем скругления */
+        width: 90%; /* 90% ширины экрана */
+        padding: 10px; /* Уменьшаем отступы */
     }
 
     iframe {
-        width: 100%; /* Ифрейм займет всю ширину */
-        height: 100%; /* Ифрейм займет всю высоту */
-        border: none; /* Убираем рамку */
+        width: 100%; /* Делаем iframe адаптивным */
+        height: 200px; /* Уменьшаем высоту для мобильных устройств */
     }
 
     .close {
-        font-size: 35px;
-        color: black; /* Меняем цвет кнопки закрытия на белый для контраста */
-        position: absolute;
-        top: 10px;
+        font-size: 25px; /* Уменьшаем размер кнопки закрытия */
+        top: -5px;
         right: 10px;
-        cursor: pointer;
     }
 }
 
@@ -207,6 +220,100 @@ h1,h2,h3,h4,h5,h6 {
         height: 400px; /* Высота iframe для больших экранов */
     }
 }
+
+/* news/memes */
+
+.news{
+    width: 80%;
+    max-height: 100%;
+    background-color: #110e0e86;
+    overflow-y: auto;
+}
+
+.header_news{
+    padding-top: 5%;
+    font-size: 30px;
+    padding-left: 10px;
+    
+}
+
+.header_memes{
+    padding-top: 20%;
+    font-size: 30px;
+    padding-left: 10px;
+    
+}
+
+.separator{
+    width: 5px; /* Белая полоса-разделитель */
+    background-color: white; /* Цвет полосы */
+    height: 100%; /* Высота полосы на всю страницу */
+}
+
+.memes{
+    width: 19%;
+    max-height: 100%;
+    background-color: #110e0e86;
+    overflow-y: auto;
+}
+
+.container_text_memes{
+    width: calc(100% - 10px); /* 100% минус двойной margin */
+    max-width: 1200px;
+    padding: 10px; /* Внутренний отступ вместо margin */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.container_text{
+    width: calc(100% - 10px); /* 100% минус двойной margin */
+    max-width: 1200px;
+    padding: 10px; /* Внутренний отступ вместо margin */
+    box-sizing: border-box;
+}
+
+.meme-item {
+    padding: 10px 0;
+    position: relative;
+}
+
+.meme-item p {
+    margin: 5px 0;
+}
+
+.meme-item:not(:last-child)::after {
+    content: "";
+    display: block;
+    width: 100%; /* Длина разделителя */
+    height: 2px; /* Толщина */
+    background-color: white; /* Цвет */
+}
+
+.news-item {
+    padding: 30px 0;
+    position: relative;
+}
+
+.news-item p {
+    margin: 20px 0;
+}
+
+/* Разделительная линия между новостями */
+.news-item:not(:last-child)::after {
+    content: "";
+    display: block;
+    width: 100%; /* Длина линии */
+    height: 2px; /* Толщина */
+    background-color: white; /* Цвет */
+}
+
+/* text */
+
+.text_main{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
 
 
 
