@@ -121,7 +121,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* Мобильный режим */
-@media (max-width: 1100px) {
+@media (max-width: 600px) {
     .schedule th, .schedule td {
         padding: 5px;
         font-size: 14px;
