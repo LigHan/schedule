@@ -437,6 +437,14 @@
         }
     });
 
+    document.addEventListener("click", function(event) {
+        // Проверяем, был ли клик вне модального окна
+        const modal = document.getElementById("mapModal");
+        if (!modal.contains(event.target) && modal.style.display === "flex") {
+            closeMapModal();
+        }
+    });
+    
     function closeMapModal() {
         document.getElementById("mapModal").style.display = "none";
         document.getElementById("mapFrame").src = "";
