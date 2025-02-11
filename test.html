@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выдвижной блок с гексагонами</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            flex-direction: column;
+            gap: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Гексагоны (фоновые элементы) */
+        .hexagon {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: float 4s ease-in-out infinite alternate;
+        }
+
+        /* Черные гексагоны */
+        .hexagon.black {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Белые гексагоны с черной границей */
+        .hexagon.white {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Анимация движения */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(30px); }
+        }
+
+        /* Затемненный фон */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.5s ease-in-out;
+            pointer-events: none;
+        }
+
+        .overlay.active {
+            background: rgba(0, 0, 0, 0.5);
+            pointer-events: all;
+        }
+
+        /* Выдвижной блок */
+        .info-box {
+            position: fixed;
+            top: -90%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 70%;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            transition: top 0.5s ease-in-out;
+        }
+
+        .info-box.active {
+            top: 15%;
+        }
+
+        /* Кнопка */
+        .toggle-btn {
+            padding: 15px 25px;
+            background: #0056b3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: font-size 0.3s ease-in-out;
+        }
+
+        .toggle-btn.active {
+            font-size: 22px;
+        }
+
+        /* Фоновые кнопки */
+        .background-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .bg-btn {
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .bg-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Гексагоны (Добавлено больше штук) -->
+    <div class="hexagon black" style="top: 5%; left: 10%; animation-duration: 6s;"></div>
+    <div class="hexagon white" style="top: 15%; left: 30%; animation-duration: 5s;"></div>
+    <div class="hexagon black" style="top: 25%; left: 60%; animation-duration: 7s;"></div>
+    <div class="hexagon white" style="top: 40%; left: 80%; animation-duration: 6s;"></div>
+    <div class="hexagon black" style="top: 50%; left: 20%; animation-duration: 4.5s;"></div>
+    <div class="hexagon white" style="top: 65%; left: 50%; animation-duration: 5.5s;"></div>
+    <div class="hexagon black" style="top: 75%; left: 70%; animation-duration: 4s;"></div>
+    <div class="hexagon white" style="top: 85%; left: 90%; animation-duration: 6.5s;"></div>
+
+    <!-- Фоновые кнопки -->
+    <div class="background-buttons">
+        <button class="bg-btn">Кнопка 1</button>
+        <button class="bg-btn">Кнопка 2</button>
+        <button class="bg-btn">Кнопка 3</button>
+    </div>
+
+    <!-- Кнопка для открытия блока -->
+    <button class="toggle-btn">Показать инфо</button>
+
+    <div class="overlay"></div> <!-- Затемненный фон -->
+    
+    <div class="info-box">
+        <h2>Информация</h2>
+        <p>Этот блок плавно выезжает сверху и затемняет фон.</p>
+    </div>
+
+    <script>
+        const infoBox = document.querySelector('.info-box');
+        const overlay = document.querySelector('.overlay');
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const bgButtons = document.querySelectorAll('.bg-btn'); // Фоновые кнопки
+
+        // Функция переключения
+        function toggleInfoBox() {
+            infoBox.classList.toggle('active');
+            overlay.classList.toggle('active');
+            toggleBtn.classList.toggle('active'); // Увеличение текста в кнопке
+
+            // Скрываем или показываем фоновые кнопки
+            bgButtons.forEach(btn => {
+                btn.classList.toggle('hidden');
+            });
+        }
+
+        // Клик по кнопке
+        toggleBtn.addEventListener('click', toggleInfoBox);
+
+        // Клик по затемненному фону (закрытие)
+        overlay.addEventListener('click', toggleInfoBox);
+    </script>
+
+</body>
+</html>
